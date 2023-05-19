@@ -1,0 +1,43 @@
+spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://119.91.141.30:3306/cak_app_info?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    #    username: shop
+    username: root
+    password: Micahmysqlmima123.
+    # 设置连接有效时间
+    hikari:
+      max-lifetime: 300000
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+  application:
+    name: aocak-backend
+  main:
+    allow-bean-definition-overriding: true
+    banner-mode: off
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto # 自增
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      logic-delete-field: isDel
+server:
+  port: 8001
+logging:
+  level:
+    com.micah: debug
+swagger:
+  enabled: false
+
+
